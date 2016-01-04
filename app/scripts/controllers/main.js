@@ -92,6 +92,9 @@ angular.module('tsearchUiApp')
          
           var inserted = response.data;
           if(angular.isObject(inserted)){
+            if (!$scope.textures) {
+               $scope.textures = {}
+            }
             $scope.textures.push({
               id : inserted.id,
               title : inserted.title,
