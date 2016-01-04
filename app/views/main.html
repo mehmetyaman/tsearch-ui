@@ -1,0 +1,70 @@
+<div class="row">
+	<h3>My Texts</h3>
+</div>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" onclick="searchText">Search</button>
+			</span>
+      <input type="text" class="form-control" placeholder="Search for...">
+		</div>
+		<!-- /input-group -->
+	</div>
+	<!-- /.col-lg-6 -->
+</div>
+
+<div class="row">
+	<nav>
+		<ul>
+			<li ng-repeat="tex in textures"><a ng-click='editOp(tex.id)' class="thumb">{{tex.title}}</a></li>
+		</ul>
+	</nav>
+   </div>
+</div>
+
+<div class="row">
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button" ng-click="addNew()">Click to Add</button>
+		</span>
+	</div>
+   </div>
+</div>
+
+<div class="row" ng-show="showAdd">
+    <div class="row">
+      <h4>You can add new title and content here...</h4>
+    </div>
+      
+    
+    <div class="row">
+      <div class="input-group">
+      <input type="text" ng-model="title" id="title" class="form-control" placeholder="Title" ng-minlength="5"
+           ng-maxlength="20"
+           required>
+      <input type="hidden" ng-model="hiddenId" id="hiddenId" class="form-control">
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="input-group input-group-btn">
+      <textarea class="form-control" rows="8" id="content" ng-model="content" placeholder="Content" ng-minlength="5"
+           ng-maxlength="20"
+           required></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="addOp()">Add Or Update</button>
+        </span>
+      </div>
+   </div>
+    
+     <div  ng-show="showError" style="color:maroon" >
+        Please fill title and content fields 
+       </div>
+  </div>
+</div>
