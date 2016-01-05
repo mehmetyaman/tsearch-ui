@@ -1,23 +1,33 @@
 <div class="row">
-	<h3>My Texts</h3>
+	<h3>tsearchUi Is An Application That Helps You To Store and Search for Texts</h3>
 </div>
+</br>
 <div class="row">
 	<div class="col-lg-6">
 		<div class="input-group">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button" onclick="searchText">Search</button>
+				<button class="btn btn-default" type="button">Filter By Title</button>
+			</span>
+      <input type="text" class="form-control" placeholder="Search for..." ng-model="search.title">
+		</div>
+	</div>
+</div>
+</br>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Search By Content</button>
 			</span>
       <input type="text" class="form-control" placeholder="Search for...">
 		</div>
-		<!-- /input-group -->
 	</div>
-	<!-- /.col-lg-6 -->
 </div>
 
 <div class="row">
 	<nav>
-		<ul>
-			<li ng-repeat="tex in textures"><a ng-click='editOp(tex.id)' class="thumb">{{tex.title}}</a></li>
+		<ul ng-repeat="tex in textures | filter:search:strict">
+			<li><a ng-click='editOp(tex.id)' class="thumb">{{tex.title}}</a></li>
 		</ul>
 	</nav>
    </div>
@@ -46,7 +56,7 @@
       <input type="hidden" ng-model="hiddenId" id="hiddenId" class="form-control">
       </div>
     </div>
-      
+      </br>
     <div class="row">
       <div class="input-group input-group-btn">
       <textarea class="form-control" rows="8" id="content" ng-model="content" placeholder="Content" ng-minlength="5"
@@ -54,7 +64,7 @@
            required></textarea>
       </div>
     </div>
-
+</br>
     <div class="row">
       <div class="input-group">
         <span class="input-group-btn">

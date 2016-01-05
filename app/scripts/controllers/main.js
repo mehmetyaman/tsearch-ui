@@ -27,7 +27,6 @@ angular.module('tsearchUiApp')
      }).then(function success(response) {
         $scope.textures = response.data;
      }, function err(response) {
-        window.alert('error is here:' + response);
         console.log('error is here:' + response);
      });
   
@@ -45,7 +44,6 @@ angular.module('tsearchUiApp')
       $scope.content = response.data.content;
           
      }, function err(response) {
-        window.alert('error is here:' + response);
         console.log('error is here:' + response);
      });
   };
@@ -66,6 +64,7 @@ angular.module('tsearchUiApp')
   var resetAndClose = function(){
      $scope.title  = '';  $scope.content = '';
      $scope.showAdd = false;
+     $scope.showError = false;
   }
   
   var showError = function(response, $scope){
@@ -92,6 +91,7 @@ angular.module('tsearchUiApp')
          
           var inserted = response.data;
           if(angular.isObject(inserted)){
+            console.log('obje add called');
             if (!$scope.textures) {
                $scope.textures = {}
             }
