@@ -79,8 +79,6 @@ angular.module('tsearchUiApp')
       
     if ($scope.add) {
        console.log('add here...');
-       console.log('title ..'+$scope.title);
-        console.log('content ..'+$scope.content);
       $http({
        method: 'POST',
        headers : headerParams,
@@ -111,7 +109,8 @@ angular.module('tsearchUiApp')
        });
     } else if($scope.edit){
       console.log('edit here...');
-      
+      console.log($scope.title);
+      console.log($scope.content);
       $http({
        method: 'POST',
        headers : headerParams,
